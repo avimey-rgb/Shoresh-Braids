@@ -6,7 +6,7 @@
 <title>שורש · סטודיו צמות שורש</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Suez+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Suez+One&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1B1310;
@@ -23,6 +23,7 @@
     --display:"Frank Ruhl Libre", serif;
     --body:"Assistant", system-ui, sans-serif;
     --mark:"Suez One", serif;
+    --signature:"Caveat", cursive;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -61,10 +62,22 @@
     background:rgba(27,19,16,.9);backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(201,150,46,.18);
   }
-  .bar__in{display:flex;align-items:center;justify-content:space-between;height:74px}
-  .brand{display:flex;align-items:baseline;gap:10px;color:var(--ivory)}
-  .brand__mark{font-family:var(--mark);font-size:30px;letter-spacing:.5px;color:var(--gold-l)}
-  .brand__sub{font-size:12.5px;letter-spacing:3px;color:var(--muted)}
+  .bar__in{display:flex;align-items:center;justify-content:space-between;min-height:86px}
+  .brand{display:flex;align-items:center;color:var(--ivory)}
+  .brand__stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+  .brand__line{display:flex;align-items:baseline;gap:12px}
+  .brand__mark{font-family:var(--mark);font-size:32px;letter-spacing:.5px;color:var(--gold-l)}
+  .brand__sub{font-size:12.5px;letter-spacing:3px;color:#D9CCBC;white-space:nowrap}
+  .brand__signature{
+    font-family:var(--signature);
+    font-size:30px;
+    font-weight:500;
+    color:#fff;
+    line-height:.9;
+    margin-top:5px;
+    transform:rotate(-2deg);
+    text-shadow:0 0 18px rgba(226,182,92,.22);
+  }
   .nav{display:flex;align-items:center;gap:30px}
   .nav a{color:#D9CCBC;font-size:15px;font-weight:500;transition:color .25s}
   .nav a:hover{color:var(--gold-l)}
@@ -90,6 +103,26 @@
   .hero h1{font-family:var(--display);font-weight:900;line-height:1.02;
     font-size:clamp(46px,8vw,88px);letter-spacing:-1px}
   .hero h1 em{font-style:normal;color:var(--gold-l)}
+  .hero__signature{
+    display:block;
+    font-family:var(--signature);
+    font-size:clamp(44px,7vw,76px);
+    font-weight:500;
+    color:#fff;
+    line-height:1;
+    margin-top:8px;
+    transform:rotate(-2deg);
+    text-shadow:0 0 22px rgba(226,182,92,.25);
+  }
+  .hero__signature::after{
+    content:"";
+    display:block;
+    width:min(270px,62vw);
+    height:1px;
+    margin-top:-6px;
+    background:linear-gradient(90deg,transparent,var(--gold-l),transparent);
+    opacity:.9;
+  }
   .hero p.lead{margin-top:26px;font-size:clamp(17px,2.1vw,21px);color:#D8CABA;max-width:30ch;font-weight:300}
   .hero__cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
   .hero__shot{position:relative}
@@ -191,6 +224,7 @@
   .foot{background:var(--ink);color:#b3a392;padding-block:44px;border-top:1px solid rgba(201,150,46,.16)}
   .foot__in{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
   .foot .brand__mark{font-size:26px}
+  .foot .brand__signature{font-size:26px;margin-top:4px}
   .foot__meta{font-size:14px;display:flex;gap:24px;flex-wrap:wrap}
   .foot__meta a:hover{color:var(--gold-l)}
   .foot__fine{width:100%;font-size:12.5px;color:#6f6052;text-align:center;margin-top:26px;opacity:.8}
@@ -205,6 +239,11 @@
     .g-a,.g-b,.g-c,.g-d,.g-e{grid-column:span 1;grid-row:span 1}
     .g-a{grid-column:span 2}
     .nav{display:none}
+    .bar__in{min-height:82px}
+    .brand__line{gap:8px}
+    .brand__mark{font-size:28px}
+    .brand__sub{font-size:11px;letter-spacing:2px}
+    .brand__signature{font-size:25px}
   }
   @media (max-width:520px){
     .occ{grid-template-columns:1fr}
@@ -223,8 +262,13 @@
 <header class="bar">
   <div class="wrap bar__in">
     <a class="brand" href="#top">
-      <span class="brand__mark">שׁוֹרֶשׁ</span>
-      <span class="brand__sub">סטודיו צמות</span>
+      <span class="brand__stack">
+        <span class="brand__line">
+          <span class="brand__mark">שׁוֹרֶשׁ</span>
+          <span class="brand__sub">סטודיו צמות</span>
+        </span>
+        <span class="brand__signature">By Shay</span>
+      </span>
     </a>
     <nav class="nav">
       <a href="#everyone">למי זה מתאים</a>
@@ -254,6 +298,7 @@
     <div class="hero__copy">
       <span class="eyebrow">סטודיו צמות שורש</span>
       <h1>כל ראש —<br><em>יצירה.</em></h1>
+      <span class="hero__signature">By Shay</span>
       <p class="lead">צמות שורש מדויקות, אלגנטיות ועמידות. לכל אחת, בכל גיל, ולכל אירוע.</p>
       <div class="hero__cta">
         <button class="btn btn--gold btn--lg" onclick="document.getElementById('contact').scrollIntoView()">קביעת תור</button>
@@ -392,10 +437,10 @@
   </div>
   <div class="wrap cta__in">
     <h2>מוכנות ל<em>קווים מושלמים</em>?</h2>
-    <p>שלחו הודעה עם התאריך והסגנון שבא לכן — ונחזור אליכן עם הצעה מתואמת אישית.</p>
+    <p>שלחו הודעה עם התאריך והסגנון שבא לכן — ואחזור אליכן עם הצעה מתואמת אישית.</p>
     <div class="cta__row">
-      <a class="btn btn--gold btn--lg" href="https://wa.me/972500000000" target="_blank" rel="noopener">שליחת הודעה בוואטסאפ</a>
-      <a class="btn btn--ghost btn--lg" href="tel:+972500000000">חיוג: 050-000-0000</a>
+      <a class="btn btn--gold btn--lg" href="https://wa.me/972526750089?text=היי,%20אשמח%20לקבוע%20תור%20לצמות%20שורש" target="_blank" rel="noopener">שליחת הודעה בוואטסאפ</a>
+      <a class="btn btn--ghost btn--lg" href="tel:+972526750089">חיוג: 052-6750089</a>
     </div>
   </div>
 </section>
@@ -403,15 +448,23 @@
 <!-- ===== Footer ===== -->
 <footer class="foot">
   <div class="wrap foot__in">
-    <a class="brand" href="#top"><span class="brand__mark">שׁוֹרֶשׁ</span><span class="brand__sub">סטודיו צמות</span></a>
+    <a class="brand" href="#top">
+      <span class="brand__stack">
+        <span class="brand__line">
+          <span class="brand__mark">שׁוֹרֶשׁ</span>
+          <span class="brand__sub">סטודיו צמות</span>
+        </span>
+        <span class="brand__signature">By Shay</span>
+      </span>
+    </a>
     <div class="foot__meta">
       <a href="#everyone">למי זה מתאים</a>
       <a href="#occasions">אירועים</a>
       <a href="#gallery">גלריה</a>
-      <a href="https://wa.me/972500000000" target="_blank" rel="noopener">וואטסאפ</a>
+      <a href="https://wa.me/972526750089?text=היי,%20אשמח%20לקבוע%20תור%20לצמות%20שורש" target="_blank" rel="noopener">וואטסאפ</a>
     </div>
   </div>
-  <div class="wrap foot__fine">© שורש · סטודיו צמות שורש — לכל אחת, לכל אירוע. הפרטים והתמונות לדוגמה וניתנים לעריכה.</div>
+  <div class="wrap foot__fine">© שורש · סטודיו צמות שורש — לכל אחת, לכל אירוע. .</div>
 </footer>
 
 <script>
